@@ -90,8 +90,8 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
+    <main className="flex min-h-screen flex-col items-center justify-center p-5">
+      <div className="w-full max-w-md md:max-w-xl p-6 md:p-8 bg-white rounded-lg shadow-md">
         <h1 className="text-2xl font-bold mb-6 text-center text-black">
           Google Sheets Form
         </h1>
@@ -103,7 +103,7 @@ export default function Home() {
                 htmlFor={field.id}
                 className="block text-sm font-medium text-black mb-1"
               >
-                {field.label} (Column {field.column})
+                {field.label}
               </label>
               <input
                 type={field.type}
@@ -112,7 +112,7 @@ export default function Home() {
                 value={fieldValues[field.id]}
                 onChange={handleChange}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
-                placeholder={`Enter value for column ${field.column}`}
+                placeholder={`Enter value for ${field.label}`}
               />
             </div>
           ))}
