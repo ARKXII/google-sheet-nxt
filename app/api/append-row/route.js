@@ -1,12 +1,11 @@
 import { google } from "googleapis";
-import fs from "fs";
-import path from "path";
+// import fs from "fs";
+// import path from "path";
 
 export async function POST(request) {
   try {
     const { fields } = await request.json();
 
-    /*
     // Check if credentials exist
     const credentials = process.env.GOOGLE_SHEETS_CREDENTIALS;
     if (!credentials) {
@@ -17,17 +16,16 @@ export async function POST(request) {
     let parsedCredentials;
     try {
       parsedCredentials = JSON.parse(credentials);
-    } catch (e) {
+    } catch {
       throw new Error('Failed to parse Google Sheets credentials. Please check your .env.local file format.');
     }
-*/
-    const credentialPath = path.join(process.cwd(), "credentials.json");
-    let parsedCredentials;
-    try {
-      parsedCredentials = JSON.parse(fs.readFileSync(credentialPath, "utf8"));
-    } catch {
-      throw new Error("Failed to read or parse Google Sheets credentials file");
-    }
+    // const credentialPath = path.join(process.cwd(), "credentials.json");
+    // let parsedCredentials;
+    // try {
+    //   parsedCredentials = JSON.parse(fs.readFileSync(credentialPath, "utf8"));
+    // } catch {
+    //   throw new Error("Failed to read or parse Google Sheets credentials file");
+    // }
     // Google Auth with error handling
     const auth = new google.auth.GoogleAuth({
       credentials: parsedCredentials,
