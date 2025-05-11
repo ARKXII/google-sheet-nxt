@@ -25,7 +25,7 @@ export async function POST(request) {
     let parsedCredentials;
     try {
       parsedCredentials = JSON.parse(fs.readFileSync(credentialPath, "utf8"));
-    } catch (e) {
+    } catch {
       throw new Error("Failed to read or parse Google Sheets credentials file");
     }
     // Google Auth with error handling

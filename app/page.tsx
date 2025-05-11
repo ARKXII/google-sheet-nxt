@@ -33,18 +33,18 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFieldValues((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const { name, value } = e.target;
+  setFieldValues((prev) => ({
+    ...prev,
+    [name]: value,
+  }));
+};
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setMessage("");
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setLoading(true);
+  setMessage("");
 
     // Create data structure for fields with column mapping
     const formData = {
