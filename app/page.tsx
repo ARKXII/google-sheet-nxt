@@ -4,9 +4,10 @@ import { useState } from "react";
 export default function Home() {
   // Define field configurations with column mappings
   const fieldConfig = [
-    { id: "field1", label: "Field 1", column: "A", type: "date" },
-    { id: "field2", label: "Field 2", column: "C", type: "text" },
-    { id: "field3", label: "Field 3", column: "D", type: "text" },
+    { id: "Date", label: "Date ", column: "A", type: "date" },
+    { id: "Category", label: "Category", column: "B", type: "text" },
+    { id: "Amount", label: "Amount", column: "C", type: "text" },
+    { id: "Description", label: "Description", column: "D", type: "text" },
   ];
 
   // Format date as YYYY-MM-DD for input field
