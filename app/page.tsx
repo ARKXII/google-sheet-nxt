@@ -33,18 +33,22 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-  const { name, value } = e.target;
-  setFieldValues((prev) => ({
-    ...prev,
-    [name]: value,
-  }));
-};
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    setFieldValues((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  setLoading(true);
-  setMessage("");
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    setMessage("");
 
     // Create data structure for fields with column mapping
     const formData = {
@@ -68,15 +72,17 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       if (response.ok) {
         setMessage(`Data successfully appended to row ${data.rowNumber}!`);
         // Reset form values, keeping today's date for field1
-        setFieldValues((prev) => ({
+        setFieldValues({
           ...Object.fromEntries(fieldConfig.map((field) => [field.id, ""])),
           field1: getTodayFormatted(),
-        }));
+        });
       } else {
         setMessage(`Error: ${data.error}`);
       }
     } catch (error) {
-      setMessage(`Error: ${error.message}`);
+      const message =
+        error instanceof Error ? error.message : "An unknown error occurred";
+      setMessage(`Error: ${message}`);
     } finally {
       setLoading(false);
     }
