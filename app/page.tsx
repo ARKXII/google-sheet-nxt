@@ -5,7 +5,13 @@ export default function Home() {
   // Define field configurations with column mappings
   const fieldConfig = [
     { id: "Date", label: "Date ", column: "A", type: "date" },
-    { id: "Category", label: "Category", column: "B", type: "text" },
+    {
+      id: "Category",
+      label: "Category",
+      column: "B",
+      type: "select",
+      options: ["Personal", "Date", "Grocery", "Meme"],
+    },
     { id: "Amount", label: "Amount", column: "C", type: "text" },
     { id: "Description", label: "Description", column: "D", type: "text" },
   ];
@@ -91,9 +97,17 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-5">
+      {/* <div className="flex flex-row gap-3">
+        <button className="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">
+          Button 1
+        </button>
+        <button className="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">
+          Button 2
+        </button>
+      </div> */}
       <div className="w-full max-w-md md:max-w-xl p-6 md:p-8 bg-white rounded-lg shadow-md">
         <h1 className="text-2xl font-bold mb-6 text-center text-black">
-          Google Sheets Form
+          Enter Transaction
         </h1>
 
         <form onSubmit={handleSubmit}>
@@ -105,15 +119,32 @@ export default function Home() {
               >
                 {field.label}
               </label>
-              <input
-                type={field.type}
-                id={field.id}
-                name={field.id}
-                value={fieldValues[field.id]}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
-                placeholder={`Enter value for ${field.label}`}
-              />
+              {field.type === "select" ? (
+                <select
+                  id={field.id}
+                  name={field.id}
+                  value={fieldValues[field.id] || ""}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                >
+                  <option value="">---</option>
+                  {field.options?.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              ) : (
+                <input
+                  type={field.type}
+                  id={field.id}
+                  name={field.id}
+                  value={fieldValues[field.id] || ""}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                  placeholder={`Enter ${field.label.toLowerCase()}`}
+                />
+              )}
             </div>
           ))}
 
