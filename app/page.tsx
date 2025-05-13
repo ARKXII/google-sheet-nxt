@@ -121,6 +121,7 @@ export default function Home() {
               </label>
               {field.type === "select" ? (
                 <select
+                  required
                   id={field.id}
                   name={field.id}
                   value={fieldValues[field.id] || ""}
@@ -136,6 +137,7 @@ export default function Home() {
                 </select>
               ) : (
                 <input
+                  required
                   type={field.type}
                   id={field.id}
                   name={field.id}
