@@ -20,10 +20,10 @@ export async function GET() {
       ranges: [
         "Summary!B1", // totalSpending
         "Summary!B2", // installment
-        "Summary!D2", // totalBudget
+        "Summary!B3", // totalBudget
         "Summary!B4", // remainingBudget
-        "Summary!C5", // currentCredit
-        "Summary!D5", // budget
+        "Summary!D2", // currentCredit
+        "Summary!D4", // budget
         "Summary!A7:C12", // Matrix data
       ],
     });
