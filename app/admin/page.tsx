@@ -65,11 +65,6 @@ export default function Home() {
             Home
           </button>
         </Link>
-        <Link href="/admin">
-          <button className="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">
-            Admin
-          </button>
-        </Link>
       </div>
 
       <div className="w-full max-w-6xl space-y-8">
@@ -121,7 +116,7 @@ export default function Home() {
             </div>
             <div className="p-3 border rounded-lg bg-indigo-50">
               <h3 className="font-semibold text-sm text-indigo-700">Budget</h3>
-              <p className="font-medium text-lg text-black">
+              <p className="font-medium text-lg">
                 {data.individualCells.budget}
               </p>
             </div>
