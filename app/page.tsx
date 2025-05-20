@@ -32,7 +32,7 @@ export default function Home() {
     const initialValues = Object.fromEntries(
       fieldConfig.map((field) => {
         // Set field1 to today's date, others to empty string
-        return [field.id, field.id === "field1" ? getTodayFormatted() : ""];
+        return [field.id, field.id === "Date" ? getTodayFormatted() : ""];
       })
     );
     return initialValues;
