@@ -82,7 +82,7 @@ export default function Home() {
         // Reset form values, keeping today's date for field1
         setFieldValues({
           ...Object.fromEntries(fieldConfig.map((field) => [field.id, ""])),
-          field1: getTodayFormatted(),
+          Date: getTodayFormatted(),
         });
       } else {
         setMessage(`Error: ${data.error}`);
@@ -172,7 +172,18 @@ export default function Home() {
                 : "bg-green-100 text-green-700"
             }`}
           >
-            {message}
+            {message}&nbsp;
+            {message.includes("Error") ? (
+              ""
+            ) : (
+              <a
+                href={`https://docs.google.com/spreadsheets/d/${process.env.NEXT_PUBLIC_GOOGLE_SHEET_ID}/edit`}
+                className="text-blue-500 hover:underline"
+                target="_blank"
+              >
+                View Sheet
+              </a>
+            )}
           </div>
         )}
       </div>

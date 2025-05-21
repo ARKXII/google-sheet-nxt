@@ -9,15 +9,19 @@ export async function POST(request) {
     // Check if credentials exist
     const credentials = process.env.GOOGLE_SHEETS_CREDENTIALS;
     if (!credentials) {
-      throw new Error('Google Sheets credentials not found in environment variables');
+      throw new Error(
+        "Google Sheets credentials not found in environment variables"
+      );
     }
-    
+
     // Parse credentials safely
     let parsedCredentials;
     try {
       parsedCredentials = JSON.parse(credentials);
     } catch {
-      throw new Error('Failed to parse Google Sheets credentials. Please check your .env.local file format.');
+      throw new Error(
+        "Failed to parse Google Sheets credentials. Please check your .env.local file format."
+      );
     }
     // const credentialPath = path.join(process.cwd(), "credentials.json");
     // let parsedCredentials;
@@ -32,7 +36,7 @@ export async function POST(request) {
       scopes: ["https://www.googleapis.com/auth/spreadsheets"],
     });
     // Check spreadsheet ID
-    const spreadsheetId = process.env.GOOGLE_SHEET_ID;
+    const spreadsheetId = process.env.NEXT_PUBLIC_GOOGLE_SHEET_ID;
     if (!spreadsheetId) {
       throw new Error("Google Sheet ID not found in environment variables");
     }
