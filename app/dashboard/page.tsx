@@ -10,6 +10,11 @@ type SheetData = {
     remainingBudget: string | null;
     currentCredit: string | null;
     budget: string | null;
+    ewsoa: string | null;
+    seabank: string | null;
+    projected: string | null;
+    gotyme: string | null;
+    need: string | null;
   };
   matrix: string[][];
   error?: string;
@@ -24,6 +29,11 @@ export default function Home() {
       remainingBudget: "Loading...",
       currentCredit: "Loading...",
       budget: "Loading...",
+      ewsoa: "Loading...",
+      seabank: "Loading...",
+      projected: "Loading...",
+      gotyme: "Loading...",
+      need: "Loading...",
     },
     matrix: [],
   });
@@ -44,6 +54,11 @@ export default function Home() {
             remainingBudget: data.individualCells.remainingBudget || "N/A",
             currentCredit: data.individualCells.currentCredit || "N/A",
             budget: data.individualCells.budget || "N/A",
+            ewsoa: data.individualCells.ewsoa || "N/A",
+            seabank: data.individualCells.seabank || "N/A",
+            projected: data.individualCells.projected || "N/A",
+            gotyme: data.individualCells.gotyme || "N/A",
+            need: data.individualCells.need || "N/A",
           },
           matrix: data.matrix || [],
         });
@@ -125,9 +140,38 @@ export default function Home() {
                 {data.individualCells.budget}
               </p>
             </div>
+            <div className="p-3 border rounded-lg bg-indigo-50">
+              <h3 className="font-semibold text-sm text-indigo-700">
+                Eastwest Statment Amount
+              </h3>
+              <p className="font-medium text-lg text-black">
+                {data.individualCells.ewsoa}
+              </p>
+            </div>
+            <div className="p-3 border rounded-lg bg-indigo-50">
+              <h3 className="font-semibold text-sm text-indigo-700">Seabank</h3>
+              <p className="font-medium text-lg text-black">
+                {data.individualCells.seabank}
+              </p>
+            </div>
+            <div className="p-3 border rounded-lg bg-indigo-50">
+              <h3 className="font-semibold text-sm text-indigo-700">
+                Projected
+              </h3>
+              <p className="font-medium text-lg text-black">
+                {data.individualCells.projected}
+              </p>
+            </div>
+            <div className="p-3 border rounded-lg bg-indigo-50">
+              <h3 className="font-semibold text-sm text-indigo-700">
+                GoTyme Savings
+              </h3>
+              <p className="font-medium text-lg text-black">
+                {data.individualCells.gotyme}
+              </p>
+            </div>
           </div>
         </div>
-
         {/* Matrix Display */}
         <div className="p-6 bg-white rounded-lg shadow-md">
           <h2 className="text-xl font-bold mb-4 text-black">

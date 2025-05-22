@@ -25,6 +25,11 @@ export async function GET() {
         "Summary!D2", // currentCredit
         "Summary!D4", // budget
         "Summary!A7:C12", // Matrix data
+        "Summary!C17",
+        "Summary!B20",
+        "Summary!B21",
+        "Summary!B22",
+        "Summary!B24",
       ],
     });
 
@@ -36,6 +41,11 @@ export async function GET() {
         remainingBudget: response.data.valueRanges[3].values?.[0]?.[0] || null,
         currentCredit: response.data.valueRanges[4].values?.[0]?.[0] || null,
         budget: response.data.valueRanges[5].values?.[0]?.[0] || null,
+        ewsoa: response.data.valueRanges[7].values?.[0]?.[0] || null,
+        seabank: response.data.valueRanges[8].values?.[0]?.[0] || null,
+        projected: response.data.valueRanges[9].values?.[0]?.[0] || null,
+        gotyme: response.data.valueRanges[10].values?.[0]?.[0] || null,
+        need: response.data.valueRanges[11].values?.[0]?.[0] || null,
       },
       matrix: response.data.valueRanges[6].values || [],
     });
