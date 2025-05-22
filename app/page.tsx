@@ -13,9 +13,43 @@ export default function Home() {
       type: "select",
       options: ["Personal", "Date", "Grocery", "Meme"],
     },
-    { id: "Amount", label: "Amount", column: "C", type: "text" },
+    {
+      id: "Amount",
+      label: "Amount",
+      column: "C",
+      type: "number",
+      min: 0,
+      step: 0.01,
+      decimal: 2,
+    },
     { id: "Description", label: "Description", column: "D", type: "text" },
   ];
+
+  type CurrencyInputProps = {
+    value: string;
+    onChange: (value: string) => void;
+    [key: string]: any;
+  };
+
+  const CurrencyInput = ({ value, onChange, ...props }: CurrencyInputProps) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const inputValue = e.target.value.replace(/[^0-9.]/g, "");
+      onChange(inputValue);
+    };
+
+    return (
+      <input
+        type="text"
+        value={value}
+        onChange={handleChange}
+        inputMode="decimal"
+        step="0.01"
+        min="0"
+        pattern="^\d+(\.\d{1,2})?$"
+        {...props}
+      />
+    );
+  };
 
   // Format date as YYYY-MM-DD for input field
   const getTodayFormatted = () => {
@@ -140,6 +174,25 @@ export default function Home() {
                     </option>
                   ))}
                 </select>
+              ) : field.type === "number" ? (
+                <div className="relative">
+                  <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+                    ₱
+                  </span>
+                  <input
+                    required
+                    type="number"
+                    id={field.id}
+                    name={field.id}
+                    value={fieldValues[field.id] || ""}
+                    onChange={handleChange}
+                    inputMode="decimal"
+                    step="0.01"
+                    min="0"
+                    className="w-full pl-8 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                    placeholder="0.00"
+                  />
+                </div>
               ) : (
                 <input
                   required
