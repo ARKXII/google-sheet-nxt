@@ -140,34 +140,42 @@ export default function Home() {
                 {data.individualCells.budget}
               </p>
             </div>
-            <div className="p-3 border rounded-lg bg-indigo-50">
-              <h3 className="font-semibold text-sm text-indigo-700">
-                Eastwest Statment Amount
+            <div className="p-3 border rounded-lg bg-purple-50 border-purple-100">
+              <h3 className="font-semibold text-sm text-purple-800">
+                Eastwest Statement Amount
               </h3>
-              <p className="font-medium text-lg text-black">
+              <p className="font-medium text-lg text-purple-900">
                 {data.individualCells.ewsoa}
               </p>
             </div>
-            <div className="p-3 border rounded-lg bg-indigo-50">
-              <h3 className="font-semibold text-sm text-indigo-700">Seabank</h3>
-              <p className="font-medium text-lg text-black">
+            <div className="p-3 border rounded-lg bg-purple-50 border-purple-100">
+              <h3 className="font-semibold text-sm text-purple-800">Seabank</h3>
+              <p className="font-medium text-lg text-purple-900">
                 {data.individualCells.seabank}
               </p>
             </div>
-            <div className="p-3 border rounded-lg bg-indigo-50">
-              <h3 className="font-semibold text-sm text-indigo-700">
+            <div className="p-3 border rounded-lg bg-purple-50 border-purple-100">
+              <h3 className="font-semibold text-sm text-purple-800">
                 Projected
               </h3>
-              <p className="font-medium text-lg text-black">
+              <p className="font-medium text-lg text-purple-900">
                 {data.individualCells.projected}
               </p>
             </div>
-            <div className="p-3 border rounded-lg bg-indigo-50">
-              <h3 className="font-semibold text-sm text-indigo-700">
+            <div className="p-3 border rounded-lg bg-purple-50 border-purple-100">
+              <h3 className="font-semibold text-sm text-purple-800">
                 GoTyme Savings
               </h3>
-              <p className="font-medium text-lg text-black">
+              <p className="font-medium text-lg text-purple-900">
                 {data.individualCells.gotyme}
+              </p>
+            </div>
+            <div className="p-3 border rounded-lg bg-purple-50 border-purple-100">
+              <h3 className="font-semibold text-sm text-purple-800">
+                Needed Amount
+              </h3>
+              <p className="font-medium text-lg text-purple-900">
+                {data.individualCells.need}
               </p>
             </div>
           </div>
@@ -179,7 +187,7 @@ export default function Home() {
           </h2>
           <div className="overflow-x-auto">
             <table className="min-w-full border">
-              <thead className="bg-gray-50">
+              <thead className="bg-gray-200">
                 <tr>
                   {data.matrix[0]?.map((header, index) => (
                     <th
@@ -195,7 +203,7 @@ export default function Home() {
                 {data.matrix.slice(1).map((row, rowIndex) => (
                   <tr
                     key={`row-${rowIndex}`}
-                    className={rowIndex % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                    className={rowIndex % 2 === 0 ? "bg-white" : "bg-gray-200"}
                   >
                     {row.map((cell, cellIndex) => (
                       <td
