@@ -90,7 +90,7 @@ export default function Home() {
       <div className="w-full max-w-6xl space-y-8">
         {/* Financial Overview Cards */}
         <div className="p-6 bg-white rounded-lg shadow-md">
-          <h2 className="text-xl font-bold mb-4 text-black">
+          <h2 className="text-xl font-bold mb-4 text-black font-sans">
             Financial Overview
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -140,6 +140,12 @@ export default function Home() {
                 {data.individualCells.budget}
               </p>
             </div>
+          </div>
+
+          <h2 className="text-xl font-bold mt-4 mb-4 text-black">
+            Statement of Account
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             <div className="p-3 border rounded-lg bg-purple-50 border-purple-100">
               <h3 className="font-semibold text-sm text-purple-800">
                 Eastwest Statement Amount
