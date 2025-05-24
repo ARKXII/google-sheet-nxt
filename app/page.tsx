@@ -31,26 +31,6 @@ export default function Home() {
     [key: string]: any;
   };
 
-  const CurrencyInput = ({ value, onChange, ...props }: CurrencyInputProps) => {
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const inputValue = e.target.value.replace(/[^0-9.]/g, "");
-      onChange(inputValue);
-    };
-
-    return (
-      <input
-        type="text"
-        value={value}
-        onChange={handleChange}
-        inputMode="decimal"
-        step="0.01"
-        min="0"
-        pattern="^\d+(\.\d{1,2})?$"
-        {...props}
-      />
-    );
-  };
-
   // Format date as YYYY-MM-DD for input field
   const getTodayFormatted = () => {
     const today = new Date();
