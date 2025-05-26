@@ -1,6 +1,6 @@
 import { google } from "googleapis";
 
-export async function POST(request: Request) {
+export async function POST(request) {
   try {
     const { fields } = await request.json();
 

@@ -203,7 +203,18 @@ export default function UpdateCellsForm() {
                 : "bg-green-100 text-green-700"
             }`}
           >
-            {message}
+            {message}&nbsp;
+            {message.includes("Error") ? (
+              ""
+            ) : (
+              <a
+                href={`https://docs.google.com/spreadsheets/d/${process.env.NEXT_PUBLIC_GOOGLE_SHEET_ID}/edit`}
+                className="text-blue-500 hover:underline"
+                target="_blank"
+              >
+                View Sheet
+              </a>
+            )}
           </div>
         )}
       </div>
