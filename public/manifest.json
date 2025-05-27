@@ -1,0 +1,14 @@
+{
+  "name": "Credit Card Dashboard",
+  "short_name": "CCDash",
+  "description": "Dashboard for Credit Cards",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "favicon.icon",
+      "sizes": "184x184",
+      "type": "image/jpg"
+    }
+  ]
+}
