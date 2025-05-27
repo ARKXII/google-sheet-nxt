@@ -187,7 +187,7 @@ export default function Home() {
 
       <div className="w-full max-w-6xl space-y-8">
         {/* Financial Overview Cards */}
-        <div className="flex flex-row bg-white rounded-lg shadow-md">
+        <div className="flex lg:flex-row flex-col bg-white rounded-lg shadow-md">
           <div className="p-10 w-full">
             <h2 className="text-xl font-bold mb-4 text-black font-sans">
               Financial Overview
@@ -242,7 +242,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-{/* Statement of Account */}
+            {/* Statement of Account */}
             <h2 className="text-xl font-bold mt-4 mb-4 text-black">
               Statement of Account
             </h2>
@@ -289,8 +289,8 @@ export default function Home() {
               </div>
             </div>
           </div>
-{/* Update Finances */}
-          <div className="w-1/3 p-8 bg-gray-50 rounded-md">
+          {/* Update Finances */}
+          <div className="w-full lg:w-1/3 p-8 bg-gray-50 rounded-md">
             <h1 className="text-2xl font-bold mb-6 text-center text-black">
               Update Finances
             </h1>
