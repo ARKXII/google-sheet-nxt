@@ -8,7 +8,7 @@ export async function POST(request) {
     const credentials = process.env.GOOGLE_SHEETS_CREDENTIALS;
     if (!credentials) {
       throw new Error(
-        "Google Sheets credentials not found in environment variables",
+        "Google Sheets credentials not found in environment variables"
       );
     }
 
@@ -18,7 +18,7 @@ export async function POST(request) {
       parsedCredentials = JSON.parse(credentials);
     } catch {
       throw new Error(
-        "Failed to parse Google Sheets credentials. Please check your .env.local file format.",
+        "Failed to parse Google Sheets credentials. Please check your .env.local file format."
       );
     }
 
@@ -41,49 +41,71 @@ export async function POST(request) {
       {
         updateCells: {
           range: { sheetId: 0, startRowIndex: 1, startColumnIndex: 3 }, // D2 (currentCredit)
-          rows: [{ values: [{ userEnteredValue: { stringValue: fields.currentCredit } }] }],
+          rows: [
+            {
+              values: [
+                { userEnteredValue: { stringValue: fields.currentCredit } },
+              ],
+            },
+          ],
           fields: "userEnteredValue",
         },
       },
       {
         updateCells: {
           range: { sheetId: 0, startRowIndex: 3, startColumnIndex: 3 }, // D4 (budget)
-          rows: [{ values: [{ userEnteredValue: { stringValue: fields.budget } }] }],
+          rows: [
+            { values: [{ userEnteredValue: { stringValue: fields.budget } }] },
+          ],
           fields: "userEnteredValue",
         },
       },
       {
         updateCells: {
           range: { sheetId: 0, startRowIndex: 16, startColumnIndex: 1 }, // B17 (SOA Date)
-          rows: [{ values: [{ userEnteredValue: { stringValue: fields.soaDate } }] }],
+          rows: [
+            { values: [{ userEnteredValue: { stringValue: fields.soaDate } }] },
+          ],
           fields: "userEnteredValue",
         },
       },
       {
         updateCells: {
           range: { sheetId: 0, startRowIndex: 16, startColumnIndex: 2 }, // C17 (SOA Amount)
-          rows: [{ values: [{ userEnteredValue: { stringValue: fields.soaAmount } }] }],
+          rows: [
+            {
+              values: [{ userEnteredValue: { stringValue: fields.soaAmount } }],
+            },
+          ],
           fields: "userEnteredValue",
         },
       },
       {
         updateCells: {
           range: { sheetId: 0, startRowIndex: 19, startColumnIndex: 1 }, // B20 (Seabank)
-          rows: [{ values: [{ userEnteredValue: { stringValue: fields.seabank } }] }],
+          rows: [
+            { values: [{ userEnteredValue: { stringValue: fields.seabank } }] },
+          ],
           fields: "userEnteredValue",
         },
       },
       {
         updateCells: {
           range: { sheetId: 0, startRowIndex: 20, startColumnIndex: 1 }, // B21 (Projected)
-          rows: [{ values: [{ userEnteredValue: { stringValue: fields.projected } }] }],
+          rows: [
+            {
+              values: [{ userEnteredValue: { stringValue: fields.projected } }],
+            },
+          ],
           fields: "userEnteredValue",
         },
       },
       {
         updateCells: {
           range: { sheetId: 0, startRowIndex: 21, startColumnIndex: 1 }, // B22 (Gotyme Savings)
-          rows: [{ values: [{ userEnteredValue: { stringValue: fields.gotyme } }] }],
+          rows: [
+            { values: [{ userEnteredValue: { stringValue: fields.gotyme } }] },
+          ],
           fields: "userEnteredValue",
         },
       },
@@ -108,7 +130,7 @@ export async function POST(request) {
         success: false,
         error: error.message,
       },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
