@@ -177,7 +177,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-5">
-      <link rel="icon" href="/favicon.ico"/>
+      <link rel="icon" href="/favicon.ico" />
       <div className="flex flex-row gap-3 mb-6">
         <Link href="/">
           <button className="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">
@@ -335,12 +335,20 @@ export default function Home() {
                         type="number"
                         id={field.id}
                         name={field.id}
-                        value={fieldValues[field.id]}
                         onChange={handleChange}
                         step={field.step}
                         min={field.min}
+                        defaultValue={String(
+                          data.individualCells[
+                            field.id as keyof typeof data.individualCells
+                          ] || ""
+                        )}
                         className="w-full pl-8 px-3 py-2 border bg-white border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                        placeholder="0.00"
+                        placeholder={String(
+                          data.individualCells[
+                            field.id as keyof typeof data.individualCells
+                          ] || "0.00"
+                        )}
                       />
                     </div>
                   ) : (
@@ -348,9 +356,18 @@ export default function Home() {
                       type={field.type}
                       id={field.id}
                       name={field.id}
-                      value={fieldValues[field.id]}
+                      value={
+                        data.individualCells[
+                          field.id as keyof typeof data.individualCells
+                        ] || ""
+                      }
                       onChange={handleChange}
                       className="w-full px-3 py-2 border bg-white border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-black"
+                      placeholder={String(
+                        data.individualCells[
+                          field.id as keyof typeof data.individualCells
+                        ] || ""
+                      )}
                     />
                   )}
                 </div>
