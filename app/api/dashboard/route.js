@@ -165,6 +165,7 @@ export async function GET() {
         "Summary!B21",
         "Summary!B22",
         "Summary!B24",
+        "Summary!C24", //need comments
       ],
     });
 

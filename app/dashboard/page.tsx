@@ -15,6 +15,7 @@ type SheetData = {
     projected: string | null;
     gotyme: string | null;
     need: string | null;
+    needcomments: string | null;
   };
   matrix: string[][];
   error?: string;
@@ -137,6 +138,7 @@ export default function Home() {
       projected: "Loading...",
       gotyme: "Loading...",
       need: "Loading...",
+      needcomments: "Loading...",
     },
     matrix: [],
   });
@@ -162,6 +164,7 @@ export default function Home() {
             projected: data.individualCells.projected || "N/A",
             gotyme: data.individualCells.gotyme || "N/A",
             need: data.individualCells.need || "N/A",
+            needcomments: data.individualCells.needcomments || "N/A",
           },
           matrix: data.matrix || [],
         });
@@ -286,6 +289,14 @@ export default function Home() {
                 </h3>
                 <p className="font-medium text-lg text-purple-900">
                   {data.individualCells.need}
+                </p>
+              </div>
+              <div className="p-3 border rounded-lg bg-purple-50 border-purple-100">
+                <h3 className="font-semibold text-sm text-purple-800">
+                  Comments
+                </h3>
+                <p className="font-medium text-lg text-purple-900">
+                  {data.individualCells.needcomments}
                 </p>
               </div>
             </div>
